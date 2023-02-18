@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -30,6 +31,8 @@ public class ActivityList extends AppCompatActivity {
     Button btnVer;
     Button btnActualizar;
 
+    Adapter adapter;
+
 
 
     @Override
@@ -48,6 +51,25 @@ public class ActivityList extends AppCompatActivity {
             }
         });
 
+        btnEliminar = (Button) findViewById(R.id.btnEliminar) ;
+
+        btnEliminar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EliminarContacto();
+            }
+        });
+
+        btnActualizar = (Button) findViewById(R.id.btnActualizar);
+
+        btnActualizar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ActualizarContacto();
+            }
+        });
+
+
         conexion = new SQLiteConexion(this, Transacciones.NameDatabase, null, 1);
         listView = (ListView) findViewById(R.id.listView);
 
@@ -63,6 +85,27 @@ public class ActivityList extends AppCompatActivity {
          intent.setType("text/plain");
          intent.putExtra(Intent.EXTRA_TEXT,  contactos);
          startActivity(Intent.createChooser(intent, "Compartir contacto"));
+     }
+
+     private void EliminarContacto()
+     {
+          listView = findViewById(R.id.listView);
+          Adapter adapter = (Adapter)  listView.getAdapter();
+
+          int position = listView.getCheckedItemPosition();
+
+          if(position!= listView.INVALID_POSITION){
+             // adapter.remove(position);
+              adapter.notify();
+
+          }
+
+     }
+
+     private void ActualizarContacto(){
+        ListView listView = findViewById(R.id.listView);
+        Adapter adapter = (Adapter) listView.getAdapter();
+
      }
 
 

@@ -66,21 +66,41 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         nombre = (EditText) findViewById(R.id.nombre);
+        String texto = nombre.getText().toString();
+        if(texto.isEmpty()){
+            nombre.setError("Escriba el Nombre, Este Campo es Obligatorio");
+            nombre.requestFocus();
+        }else{
+
+        }
 
         pais = (Spinner) findViewById(R.id.pais);
 
-
         telefono = (EditText)  findViewById(R.id.telefono);
+        String texto1 = telefono.getText().toString();
+        if(texto.isEmpty()){
+            telefono.setError("Digite el Numero Telefonico, Este Campo es Obligatorio");
+            telefono.requestFocus();
+        }else{
 
+        }
 
         nota = (EditText)  findViewById(R.id.nota);
+        String texto2 = nota.getText().toString();
+        if(texto.isEmpty()){
+            nota.setError("Escriba una Nota, Este Campo es Opcional");
+            nota.requestFocus();
+        }else{
 
+        }
 
         imageView = (ImageView) findViewById(R.id.imageView);
 
         btntakefoto = (Button) findViewById(R.id.btnfoto);
         btnMostrar = (Button) findViewById(R.id.btnMostrar) ;
         btnagregar = (Button) findViewById(R.id.btnagregar);
+
+
 
         nombre.setOnClickListener(new View.OnClickListener() {
             @Override
