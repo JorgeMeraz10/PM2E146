@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="Codigo" >
+        <item>     Seleccione:</item>>
+        <item>Honduras (+504)</item>>
+        <item>Costa Rica (+506)</item>>
+        <item>Guatemala (+503)</item>>
+        <item>El Salvador (+502)</item>>
+    </array>
+</resources>
